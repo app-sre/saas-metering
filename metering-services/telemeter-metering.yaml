@@ -1,0 +1,15 @@
+services:
+- hash: ignore
+  name: telemetering-metering
+  path: /manifests/openshift-templates/list.yaml
+  url: https://github.com/app-sre/saas-metering
+  hash_length: 40
+  environments:
+  - name: staging
+    parameters:
+      NAMESPACE: metering-staging
+      METERING_VERSION: latest
+  - name: production
+    parameters:
+      NAMESPACE: metering-production
+      METERING_VERSION: latest
