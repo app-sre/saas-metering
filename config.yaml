@@ -1,0 +1,7 @@
+contexts:
+- data:
+    output_dir: metering-processed
+    services_dir: metering-services
+    templates_dir: metering-templates
+  name: metering
+current: metering
