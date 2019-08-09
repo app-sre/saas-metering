@@ -7,9 +7,9 @@ services:
   environments:
   - name: staging
     parameters:
-      NAMESPACE: metering-staging
+      NAMESPACE: telemeter-metering-stage
       METERING_VERSION: latest
-  - name: production
-    parameters:
-      NAMESPACE: metering-production
-      METERING_VERSION: latest
+  # - name: production
+  #   parameters:
+  #     NAMESPACE: telemeter-metering-production
+  #     METERING_VERSION: latest

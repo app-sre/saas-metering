@@ -4,7 +4,7 @@ metadata:
   name: telemeter-metering
 parameters:
 - name: NAMESPACE
-  value: telemeter-metering
+  value: telemeter-metering-stage
 - name: METERING_VERSION
   value: 0.11.0
 objects:
@@ -75,12 +75,13 @@ objects:
   subjects:
   - kind: ServiceAccount
     name: metering-operator
-    namespace: placeholder
+    namespace: ${NAMESPACE}
 
 - apiVersion: apps/v1
   kind: Deployment
   metadata:
     name: metering-operator
+    namespace: ${NAMESPACE}
     labels:
       app: metering-operator
   spec:
@@ -155,6 +156,7 @@ objects:
   kind: Role
   metadata:
     name: metering-operator
+    namespace: ${NAMESPACE}
   rules:
     - apiGroups:
       - metering.openshift.io
@@ -267,6 +269,7 @@ objects:
   kind: RoleBinding
   metadata:
     name: metering-operator
+    namespace: ${NAMESPACE}
   roleRef:
     apiGroup: rbac.authorization.k8s.io
     kind: Role
@@ -279,6 +282,7 @@ objects:
   kind: ServiceAccount
   metadata:
     name: metering-operator
+    namespace: ${NAMESPACE}
 
 - apiVersion: apiextensions.k8s.io/v1beta1
   kind: CustomResourceDefinition
@@ -307,6 +311,7 @@ objects:
   kind: MeteringConfig
   metadata:
     name: operator-metering
+    namespace: ${NAMESPACE}
   spec: {}
 
 - apiVersion: apiextensions.k8s.io/v1beta1
