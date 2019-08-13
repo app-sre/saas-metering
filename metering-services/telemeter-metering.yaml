@@ -1,15 +1,14 @@
 services:
-- hash: ignore
-  name: telemetering-metering
-  path: /manifests/openshift-templates/list.yaml
-  url: https://github.com/app-sre/saas-metering
+- hash:  6c59bc93eae6af0d41fa763dfb4980fd0694fed4
+  name: telemeter-metering
+  path: /manifests/deploy/openshift/telemeter/list.yaml
+  url: https://github.com/operator-framework/operator-metering
   hash_length: 40
   environments:
   - name: staging
     parameters:
-      NAMESPACE: metering-staging
-      METERING_VERSION: latest
-  - name: production
-    parameters:
-      NAMESPACE: metering-production
-      METERING_VERSION: latest
+      NAMESPACE: telemeter-metering-stage
+  # - name: production
+  #   parameters:
+  #     NAMESPACE: telemeter-metering-production
+  #     METERING_VERSION: latest
